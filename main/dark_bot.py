@@ -4,7 +4,7 @@ from typing import Final
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, Application, CommandHandler, CallbackQueryHandler
 
-from start import start_command
+
 
 dotenv.load_dotenv()
 
@@ -29,7 +29,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def choise(selected_data: str, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
     if 'care' in selected_data:
         if "ENG" in selected_data:
-            photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\GC_05700.jpeg"
+            photo_path = os.path.join("media", "GC_05700.jpeg")
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
@@ -108,8 +108,8 @@ async def choise(selected_data: str, chat_id: int, context: ContextTypes.DEFAULT
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_message(chat_id=chat_id,
                                            text='Kurwa działa chujowstwo, kurwa ręka boli kurwaaaaaa auaaaa ....')
-    
-    
+
+
 async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global selected_data
     query = update.callback_query
@@ -143,7 +143,7 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
             selected_data.remove('RU')
         selected_data.append("RU")
 
-    if new_element == "care":                           
+    if new_element == "care":
         if "how_to" in selected_data:
             selected_data.remove('how_to')
         elif 'how_much' in selected_data:
@@ -173,7 +173,7 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    global selected_data 
+    global selected_data
     chat_id = update.effective_chat.id
     photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\FAQ-picture.jpg"
 
@@ -194,7 +194,7 @@ async def faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
     pl_how_much = InlineKeyboardButton('💵 Cennik 💵', callback_data='how_much')
 
     pl_keyboard = InlineKeyboardMarkup([[pl_how_to],[pl_care],[pl_how_much]])
-    
+
     await context.bot.send_photo(chat_id=chat_id, photo=photo_path)
 
     if 'RU' in selected_data:
@@ -241,7 +241,7 @@ async def location_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.message.chat_id
     latitude, longitude = 52.2343483586397, 21.016758841301986
     await context.bot.send_location(chat_id=chat_id, latitude=latitude, longitude=longitude)
- 
+
 
 if __name__ == "__main__":
     print('Start polling...')
@@ -254,5 +254,5 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler('faq', faq))
     print('Polling...')
 
-    app.run_polling() 
+    app.run_polling()
 
