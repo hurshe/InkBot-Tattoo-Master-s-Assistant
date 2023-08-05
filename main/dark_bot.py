@@ -31,24 +31,17 @@ async def choise(selected_data: str, chat_id: int, context: ContextTypes.DEFAULT
         if "ENG" in selected_data:
             photo_path = os.path.join("media", "GC_05700.jpeg")
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
-            await context.bot.send_document(chat_id=chat_id,
-                                            document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
-                                                'rb'))
+            await context.bot.send_document(chat_id=chat_id, document=open("C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf", 'rb'))
+
         elif "RU" in selected_data:
-            photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\GC_05700.jpeg"
+            photo_path = os.path.join('media', "GC_05700.jpeg")
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
-            await context.bot.send_document(chat_id=chat_id,
-                                            document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(RU).pdf',
-                                                'rb'))
+            await context.bot.send_document(chat_id=chat_id, document=open("C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf", 'rb'))
+
         elif "PL" in selected_data:
-            photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\GC_05700.jpeg"
+            photo_path = os.path.join('media', "GC_05700.jpeg")
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
-            await context.bot.send_document(chat_id=chat_id,
-                                            document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(PL).pdf',
-                                                'rb'))
+            await context.bot.send_document(chat_id=chat_id, document=open("C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf", 'rb'))
 
     elif 'how_to' in selected_data:
         if "ENG" in selected_data:
@@ -56,21 +49,21 @@ async def choise(selected_data: str, chat_id: int, context: ContextTypes.DEFAULT
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
+                                                "C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf",
                                                 'rb'))
         elif "RU" in selected_data:
             photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\maxresdefault.jpg"
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
+                                                "C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf",
                                                 'rb'))
         elif "PL" in selected_data:
             photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\maxresdefault.jpg"
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
+                                                "C:\\Users\\rober\\OneDrive\\Робочий стіл\\DarkSoulTattoBot\\Уход(ENG) (1).pdf",
                                                 'rb'))
 
     elif 'how_much' in selected_data:
@@ -83,14 +76,14 @@ async def choise(selected_data: str, chat_id: int, context: ContextTypes.DEFAULT
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
+                                                '/InkBot-Tattoo-Master-s-Assistant/main/media/Care(ENG).pdf',
                                                 'rb'))
         elif "PL" in selected_data:
             photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\pricing.png"
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
             await context.bot.send_document(chat_id=chat_id,
                                             document=open(
-                                                'C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\Уход(ENG).pdf',
+                                                '/InkBot-Tattoo-Master-s-Assistant/main/media/Care(ENG).pdf',
                                                 'rb'))
 
     else:
@@ -175,7 +168,7 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global selected_data
     chat_id = update.effective_chat.id
-    photo_path = "C:\\Users\\rober\\DarkSoulTattoBot\\InkBot-Tattoo-Master-s-Assistant\\main\\media\\FAQ-picture.jpg"
+    photo_path = "/InkBot-Tattoo-Master-s-Assistant/main/media/FAQ/FAQ-picture.jpg"
 
     russian_how_to = InlineKeyboardButton('Подготовка к сеансу', callback_data='how_to')
     russian_care = InlineKeyboardButton('Уход за тату', callback_data='care')
