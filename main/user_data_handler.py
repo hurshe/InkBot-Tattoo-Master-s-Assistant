@@ -4,10 +4,11 @@ from telegram import Update
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
+
 selected_data = []
 
 
-async def chose(selected_data: str, chat_id: int, context):
+async def data_controller(selected_data: str, chat_id: int, context, update):
     care_image_path = os.path.join(os.path.dirname(__file__), "media", "GC_05700.jpeg")
     how_much_image_path = os.path.join(os.path.dirname(__file__), "media", "pricing.png")
     how_to_image_path = os.path.join(os.path.dirname(__file__), "media", "maxresdefault.jpg")
@@ -27,6 +28,7 @@ async def chose(selected_data: str, chat_id: int, context):
     how_prepare_doc_path_pl = os.path.join(os.path.dirname(__file__), "media/FAQ", "How_to_care(PL).pdf")
 
     if 'care' in selected_data:
+        del selected_data[1]
         if "ENG" in selected_data:
             photo_path = care_image_path
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
@@ -43,6 +45,7 @@ async def chose(selected_data: str, chat_id: int, context):
             await context.bot.send_document(chat_id=chat_id, document=open(how_care_doc_path_pl, 'rb'))
 
     elif 'how_to' in selected_data:
+        del selected_data[1]
         if "ENG" in selected_data:
             photo_path = how_to_image_path
             await context.bot.send_photo(chat_id=chat_id, photo=open(photo_path, 'rb'))
@@ -59,6 +62,7 @@ async def chose(selected_data: str, chat_id: int, context):
             await context.bot.send_document(chat_id=chat_id, document=open(how_prepare_doc_path_pl, 'rb'))
 
     elif 'how_much' in selected_data:
+        del selected_data[1]
         if "ENG" in selected_data:
             await context.bot.send_photo(chat_id=chat_id, photo=open(how_much_image_path, 'rb'))
             await context.bot.send_message(chat_id=chat_id, text='Pricing factors:')
@@ -251,4 +255,7 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
         selected_data.append("how_much")
     print(selected_data)
 
-    await chose(selected_data, chat_id, context)
+    await data_controller(selected_data, chat_id, context, update)
+
+if __name__ == '__main__':
+    button_click()

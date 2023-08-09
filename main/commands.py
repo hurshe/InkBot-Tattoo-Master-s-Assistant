@@ -3,14 +3,12 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 from user_data_handler import selected_data
 
-
 selected_data = selected_data
 
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     selected_data.clear()
     chat_id = update.effective_chat.id
-
     russian_button = InlineKeyboardButton('🇺🇦 RU', callback_data='RU')
     english_button = InlineKeyboardButton('🇺🇲 ENG', callback_data="ENG")
     polish_button = InlineKeyboardButton('🇵🇱 PL', callback_data='PL')
@@ -46,19 +44,19 @@ async def faq_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     russian_how_to = InlineKeyboardButton('Подготовка к сеансу', callback_data='how_to')
     russian_care = InlineKeyboardButton('Уход за тату', callback_data='care')
-    russian_how_much = InlineKeyboardButton('💵 От чего зависит цена 💵', callback_data='how_much')
+    russian_how_much = InlineKeyboardButton('От чего зависит цена', callback_data='how_much')
 
     ru_keyboard = InlineKeyboardMarkup([[russian_how_to], [russian_care], [russian_how_much]])
 
-    eng_how_to = InlineKeyboardButton('👩🎓 Preparation to session 👨‍🎓', callback_data='how_to')
-    eng_care = InlineKeyboardButton('👩‍⚕ How care to youre tattoo 👨‍⚕', callback_data='care')
-    eng_how_much = InlineKeyboardButton('💵 Pricing 💵', callback_data='how_much')
+    eng_how_to = InlineKeyboardButton(' Preparation to session ', callback_data='how_to')
+    eng_care = InlineKeyboardButton(' How care to youre tattoo ', callback_data='care')
+    eng_how_much = InlineKeyboardButton('Pricing', callback_data='how_much')
 
     eng_keyboard = InlineKeyboardMarkup([[eng_how_to], [eng_care], [eng_how_much]])
 
-    pl_how_to = InlineKeyboardButton('🫡 Przygotowanie do sesji 🫡', callback_data='how_to')
-    pl_care = InlineKeyboardButton('🫡 Pielęgacja tatuażu 🫡', callback_data='care')
-    pl_how_much = InlineKeyboardButton('💵 Cennik 💵', callback_data='how_much')
+    pl_how_to = InlineKeyboardButton('Przygotowanie do sesji ', callback_data='how_to')
+    pl_care = InlineKeyboardButton('Pielęgacja tatuażu ', callback_data='care')
+    pl_how_much = InlineKeyboardButton('Cennik ', callback_data='how_much')
 
     pl_keyboard = InlineKeyboardMarkup([[pl_how_to], [pl_care], [pl_how_much]])
 
