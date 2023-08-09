@@ -8,24 +8,19 @@ from user_data_handler import button_click, selected_data
 from commands import start_command, kontakt_command, location_command, faq_command
 from pdf_generator import generic_pdf
 # Импортируем функции из conversation.py
-from conversation import ask_question, cancel, QUESTION, user_answers
+from conversation import ask_question, cancel, QUESTION, user_answers,start_survey
 
 dotenv.load_dotenv()
 
 TOKEN: Final = os.getenv("token")
 BOT_USERNAME: Final = os.getenv("bot_username")
 
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
-)
-
-# set higher logging level for httpx to avoid all GET and POST requests being logged
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logging.getLogger("httpx").setLevel(logging.WARNING)
-
 logger = logging.getLogger(__name__)
 
 conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('conversation', ask_question)],
+        entry_points=[CommandHandler('conversation', start_survey)],
         states={
             QUESTION: [MessageHandler(filters.TEXT & ~filters.COMMAND, ask_question)],
         },
