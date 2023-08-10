@@ -12,7 +12,7 @@
 .idea/**/dictionaries
 .idea/**/shelf
 #media
-.main/media
+.*main/media
 /main/media
 
 # AWS User-specific
