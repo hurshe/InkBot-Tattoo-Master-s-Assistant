@@ -11,10 +11,12 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+#media
+.main/media
+/main/media
 
 # AWS User-specific
 .idea/**/aws.xml
-/main/media
 
 # Generated files
 .idea/**/contentModel.xml
