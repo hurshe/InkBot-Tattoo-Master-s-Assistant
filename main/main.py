@@ -2,12 +2,13 @@ import os
 import dotenv
 import logging
 from typing import Final
+
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, filters
 from telegram import Update
-from user_data_handler import button_click, selected_data
+
+from user_data_handler import button_click
 from commands import start_command, kontakt_command, location_command, faq_command
 from pdf_generator import generic_pdf
-# Импортируем функции из conversation.py
 from conversation import ask_question, cancel, QUESTION, user_answers
 
 dotenv.load_dotenv()
@@ -15,14 +16,11 @@ dotenv.load_dotenv()
 TOKEN: Final = os.getenv("token")
 BOT_USERNAME: Final = os.getenv("bot_username")
 
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
-)
 
-# set higher logging level for httpx to avoid all GET and POST requests being logged
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logging.getLogger("httpx").setLevel(logging.WARNING)
-
 logger = logging.getLogger(__name__)
+
 
 conv_handler = ConversationHandler(
         entry_points=[CommandHandler('conversation', ask_question)],
@@ -31,6 +29,7 @@ conv_handler = ConversationHandler(
         },
         fallbacks=[CommandHandler('cancel', cancel)]
     )
+
 
 if __name__ == "__main__":
     print('Start polling...')
@@ -41,8 +40,6 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler('kontakt', kontakt_command))
     app.add_handler(CommandHandler('location', location_command))
     app.add_handler(CommandHandler('faq', faq_command))
-    app.add_handler(CommandHandler('pdf', generic_pdf))
-    app.add_handler(conv_handler)
     print('Polling...')
 
     app.run_polling(allowed_updates=Update.ALL_TYPES)
