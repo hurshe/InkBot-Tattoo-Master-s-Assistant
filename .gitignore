@@ -20,8 +20,8 @@ main/media/
 .idea/**/contentModel.xml
 #not ready to reliaze
 /main/pdf_check.py
-/main/conversation.py
-/main/pdf_generator.py
+/main/conversation.py/
+/main/pdf_generator.py/
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
