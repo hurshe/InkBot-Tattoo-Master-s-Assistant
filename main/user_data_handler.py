@@ -4,7 +4,6 @@ from telegram import Update
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-
 selected_data = []
 
 
@@ -168,10 +167,10 @@ async def data_controller(selected_data: str, chat_id: int, context, update):
             await context.bot.send_message(
                 chat_id=chat_id,
                 text=''' Hi! 👋
-I am DarkSoultattooBot 🤖
-A virtual assistant of tattoo artist AleksandrDarkSoul.
-Go to the menu and check out the information we have prepared for you.🔥
-Have a tattoo-filled day!😉''')
+                I am DarkSoultattooBot 🤖
+                A virtual assistant of tattoo artist AleksandrDarkSoul.
+                Go to the menu and check out the information we have prepared for you.🔥
+                Have a tattoo-filled day!😉''')
 
         elif "RU" in selected_data:
             photo_path = os.path.join(os.path.dirname(__file__), "media", "brat.jpg")
@@ -179,10 +178,10 @@ Have a tattoo-filled day!😉''')
             await context.bot.send_message(
                 chat_id=chat_id,
                 text='''Привет! 👋
-Меня зовут DarkSoultattooBot 🤖
-Я виртуальный помощник тату-мастера AleksandrDarkSoul.
-Перейди в меню и ознакомься с информацией, которую мы для тебя приготовили.🔥
-Желаю татушного дня!😉''')
+                Меня зовут DarkSoultattooBot 🤖
+                Я виртуальный помощник тату-мастера AleksandrDarkSoul.
+                Перейди в меню и ознакомься с информацией, которую мы для тебя приготовили.🔥
+                Желаю татушного дня!😉''')
 
         elif "PL" in selected_data:
             photo_path = os.path.join(os.path.dirname(__file__), "media", "brat.jpg")
@@ -190,10 +189,10 @@ Have a tattoo-filled day!😉''')
             await context.bot.send_message(
                 chat_id=chat_id,
                 text='''Cześć! 👋
-Jestem DarkSoultattooBot 🤖
-Jestem wirtualnym asystentem tatuażysty AleksandrDarkSoul.
-Przejdź do menu i zapoznaj się z informacją, którą dla Ciebie przygotowaliśmy.🔥
-Życzę Ci tatuowanego dnia!😉 ''')
+                Jestem DarkSoultattooBot 🤖
+                Jestem wirtualnym asystentem tatuażysty AleksandrDarkSoul.
+                Przejdź do menu i zapoznaj się z informacją, którą dla Ciebie przygotowaliśmy.🔥
+                Życzę Ci tatuowanego dnia!😉 ''')
 
 
 async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):

@@ -19,7 +19,6 @@ main/media/
 .idea/**/contentModel.xml
 
 #not ready to reliaze
-/main/pdf_check.py
 /main/conversation.py
 /main/pdf_generator.py
 

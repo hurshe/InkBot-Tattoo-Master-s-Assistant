@@ -9,7 +9,6 @@ from telegram import Update
 from user_data_handler import button_click
 from commands import start_command, kontakt_command, location_command, faq_command
 
-
 dotenv.load_dotenv()
 
 TOKEN: Final = os.getenv("token")
